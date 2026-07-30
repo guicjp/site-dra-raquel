@@ -956,6 +956,7 @@
                     id="obs"
                     name="Observações"
                     rows="3"
+                    maxlength="500"
                     placeholder="Idade da criança, motivo da consulta..."
                   ></textarea>
                 </div>
@@ -1149,7 +1150,8 @@
           var tel = document.getElementById("tel").value;
           var email = document.getElementById("email").value;
           var data = document.getElementById("data").value;
-          var obs = document.getElementById("obs").value;
+          var obs = document.getElementById("obs").value.slice(0, 500);
+          var dataFormatada = data ? data.split("-").reverse().join("-") : "";
 
           emailjs
             .send(
@@ -1160,7 +1162,7 @@
                 crianca: crianca,
                 tel: tel,
                 email: email,
-                data: data || "Não informada",
+                data: dataFormatada || "Não informada",
                 obs: obs || "Nenhuma",
               },
               { publicKey: "gLY7c0kQZgDU8ERpV" },
