@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -1150,39 +1151,21 @@
           var data = document.getElementById("data").value;
           var obs = document.getElementById("obs").value;
 
-          var mensagem =
-            "Nova solicitação de consulta pelo site.\n\n" +
-            "Responsável: " +
-            resp +
-            "\n" +
-            "Criança: " +
-            crianca +
-            "\n" +
-            "Telefone: " +
-            tel +
-            "\n" +
-            "E-mail: " +
-            email +
-            "\n" +
-            (data ? "Data preferencial: " + data + "\n" : "") +
-            (obs ? "\nObservações: " + obs + "\n" : "");
-
-          var fd = new FormData();
-          fd.append(
-            "_subject",
-            "Nova solicitação de consulta — site Dra. Raquel",
-          );
-          fd.append("_captcha", "false");
-          fd.append("_replyto", email);
-          fd.append("Mensagem", mensagem);
-
-          fetch("https://formsubmit.co/ajax/guicjp@gmail.com", {
-            method: "POST",
-            headers: { Accept: "application/json" },
-            body: fd,
-          })
-            .then(function (res) {
-              if (!res.ok) throw new Error("bad status");
+          emailjs
+            .send(
+              "service_cgvlk05",
+              "template_l7vgj13",
+              {
+                resp: resp,
+                crianca: crianca,
+                tel: tel,
+                email: email,
+                data: data || "Não informada",
+                obs: obs || "Nenhuma",
+              },
+              { publicKey: "gLY7c0kQZgDU8ERpV" },
+            )
+            .then(function () {
               form.style.display = "none";
               successBox.style.display = "block";
             })
