@@ -958,13 +958,6 @@
                     placeholder="Idade da criança, motivo da consulta..."
                   ></textarea>
                 </div>
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="Nova solicitação de consulta — site Dra. Raquel"
-                />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
                 <button
                   type="submit"
                   class="btn-primary submit-btn"
@@ -1149,10 +1142,44 @@
           submitBtn.disabled = true;
           submitBtn.textContent = "Enviando...";
           formError.style.display = "none";
+
+          var resp = document.getElementById("resp").value;
+          var crianca = document.getElementById("crianca").value;
+          var tel = document.getElementById("tel").value;
+          var email = document.getElementById("email").value;
+          var data = document.getElementById("data").value;
+          var obs = document.getElementById("obs").value;
+
+          var mensagem =
+            "Nova solicitação de consulta pelo site.\n\n" +
+            "Responsável: " +
+            resp +
+            "\n" +
+            "Criança: " +
+            crianca +
+            "\n" +
+            "Telefone: " +
+            tel +
+            "\n" +
+            "E-mail: " +
+            email +
+            "\n" +
+            (data ? "Data preferencial: " + data + "\n" : "") +
+            (obs ? "\nObservações: " + obs + "\n" : "");
+
+          var fd = new FormData();
+          fd.append(
+            "_subject",
+            "Nova solicitação de consulta — site Dra. Raquel",
+          );
+          fd.append("_captcha", "false");
+          fd.append("_replyto", email);
+          fd.append("Mensagem", mensagem);
+
           fetch("https://formsubmit.co/ajax/guicjp@gmail.com", {
             method: "POST",
             headers: { Accept: "application/json" },
-            body: new FormData(form),
+            body: fd,
           })
             .then(function (res) {
               if (!res.ok) throw new Error("bad status");
