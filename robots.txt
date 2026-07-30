@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://raquelaraujo.med.br/sitemap.xml
