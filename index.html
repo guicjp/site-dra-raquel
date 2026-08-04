@@ -440,6 +440,37 @@
         letter-spacing: 0.08em;
         margin-bottom: 2px;
       }
+      .testi-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .testi-card {
+        background: #ffffff;
+        border: 1px solid #d9d5c6;
+        padding: 26px;
+        border-radius: 2px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .testi-quote {
+        font-size: 14.5px;
+        color: #26301f;
+        line-height: 1.65;
+        margin: 0;
+      }
+      .testi-name {
+        font-family: "Fraunces", serif;
+        color: #38492f;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      @media (max-width: 860px) {
+        .testi-grid {
+          grid-template-columns: 1fr;
+        }
+      }
       .wa-link {
         display: inline-flex;
         align-items: center;
@@ -752,6 +783,7 @@
             <ul id="navList">
               <li><a href="#medica">A médica</a></li>
               <li><a href="#especialidade">Especialidade</a></li>
+              <li><a href="#depoimentos">Depoimentos</a></li>
               <li><a href="#faq">Perguntas frequentes</a></li>
               <li>
                 <a href="#agendar" class="btn-primary">Agendar consulta</a>
@@ -900,6 +932,67 @@
             </p>
           </div>
           <ul class="cond-list" data-reveal="speclist" id="condList"></ul>
+        </div>
+      </section>
+
+      <section id="depoimentos" class="section-pad">
+        <div class="wrap">
+          <div
+            data-reveal="testihead"
+            style="max-width: 620px; margin-bottom: 40px"
+          >
+            <p class="eyebrow">Depoimentos</p>
+            <h2>O que as famílias dizem</h2>
+          </div>
+          <div data-reveal="testibody" class="testi-grid">
+            <div class="testi-card">
+              <p class="testi-quote">
+                "Excelente atendimento. A Dra. Raquel foi muito atenciosa,
+                demonstrou grande conhecimento e conduziu a consulta com calma e
+                profissionalismo. Recomendo muito."
+              </p>
+              <span class="testi-name">Carolina Duarte</span>
+            </div>
+            <div class="testi-card">
+              <p class="testi-quote">
+                "Excelente profissional, carinhosa, comprometida, explicou muito
+                bem o diagnóstico do meu filho. Atendimento maravilhoso."
+              </p>
+              <span class="testi-name">Josi Silva</span>
+            </div>
+            <div class="testi-card">
+              <p class="testi-quote">
+                "Excelente profissional, extremamente competente, com capacidade
+                de explicar com clareza todas as dúvidas que existiam. Indico,
+                sem dúvidas!"
+              </p>
+              <span class="testi-name">Fatima Saads</span>
+            </div>
+            <div class="testi-card">
+              <p class="testi-quote">
+                "Dra. Raquel é uma excelente profissional, atenciosa,
+                comprometida e carinhosa. Minha filha e eu amamos o
+                atendimento."
+              </p>
+              <span class="testi-name">Josiane Ferreira</span>
+            </div>
+            <div class="testi-card">
+              <p class="testi-quote">
+                "A Dra. Raquel foi uma excelente profissional com o tratamento
+                da minha filha: atenciosa, técnica e prática com as suas
+                soluções."
+              </p>
+              <span class="testi-name">Marcella S.</span>
+            </div>
+            <div class="testi-card">
+              <p class="testi-quote">
+                "Excelente endocrino pediatra! Atualizada, atenciosa,
+                atendimento humano... esclarece todas as dúvidas com muita
+                clareza."
+              </p>
+              <span class="testi-name">FSP</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1282,6 +1375,14 @@
             </div>
             <div class="footer-line">(31) 3337-1663 · (31) 99961-1663</div>
             <div class="footer-line">clinicarmangelli@gmail.com</div>
+            <div class="footer-line">
+              <a
+                href="https://www.doctoralia.com.br/raquel-ferreira-araujo/pediatra-endocrinologista-pediatrico/belo-horizonte"
+                target="_blank"
+                rel="noopener"
+                >Perfil no Doctoralia</a
+              >
+            </div>
             <a
               href="https://wa.me/5531999611663?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta."
               rel="noopener"
